@@ -1,6 +1,18 @@
 # http://stackoverflow.com/questions/415511/how-to-get-current-time-in-python
-import time
-now = time.strftime("%Y-%m-%d %H:%M")
-print now
-# http://stackoverflow.com/questions/16615087/python-how-to-create-a-global-hotkey-on-windows-with-3-arguments
 # http://schurpf.com/python/python-hotkey-module/
+import time
+import pyhk
+
+
+def fun():
+    now = time.strftime("%Y-%m-%d %H:%M:%S")
+    print now
+
+# create pyhk class instance
+hot = pyhk.pyhk()
+
+# add hotkey
+hot.addHotkey(['Ctrl', 'Alt', 'D'], fun)
+
+# start looking for hotkey.
+hot.start()
